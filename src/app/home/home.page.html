@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+      <wizard >
+      @for (step of (steps); track $index;let i = $index) {
+        <step [title]="step.label ?? 'Step '+($index+1)" [disableButton]="step.disabled">
+            <div class="flex flex-col" stepContent [innerHTML]="step.content">
+             
+            </div>
+
+        </step>
+
+      }
+      </wizard>
+</ion-content>

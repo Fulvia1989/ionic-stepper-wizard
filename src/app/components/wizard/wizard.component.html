@@ -1,0 +1,29 @@
+    <div class="toolbar">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="ion-no-padding flex ion-justify-content-start">
+            @if (currentIndex() !==0) {
+              <ion-button (click)="pre()" fill="clear" color="secondary"  shape="round" >
+                <ion-icon name="chevron-back-outline" slot="icon-only" ></ion-icon>
+              </ion-button>
+            }
+          </ion-col>
+          <ion-col size="8">
+            <label>
+              <span class="badge" [class.completed]="!disabledButton">{{currentIndex()+1}}</span>
+              <h3 class="title">{{title()}}</h3>
+            </label>
+
+          </ion-col>
+          <ion-col size="2" class="ion-no-padding flex ion-justify-content-end">
+            @if(currentIndex()!== this.steps.length-1){
+              <ion-button (click)="next()" [disabled]="disabledButton" color="secondary" fill="clear" shape="round">
+                <ion-icon name="chevron-forward-outline" slot="icon-only"></ion-icon>
+              </ion-button>
+            }
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <ng-content></ng-content>
